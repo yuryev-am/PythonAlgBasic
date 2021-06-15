@@ -9,11 +9,12 @@ import random as rnd
 rand_number = rnd.randint(0, 101)  # Генерируем случайное число
 # print(rand_number)
 res = False  # Флаг результата игры.
+try_number = 0  # Число попыток
 
 print('Игра "Отгадай число". Генерируется случайное число от 0 до 100. Ваша задача угадать число за 10 попыток.')
 
-for i in range(10):
-    user_var = int(input(f'Попытка №{i + 1}. Введите ваш вариант числа: '))
+for try_number in range(1, 11):
+    user_var = int(input(f'Попытка №{try_number}. Введите ваш вариант числа: '))
     if user_var == rand_number:
         res = True
         break
@@ -23,7 +24,7 @@ for i in range(10):
         print(f'Введенное вами число больше загаданного. Пожалуйста, повторите попытку.')
 
 if res:
-    print(f'Поздравляем! Вы отгадали число c {i + 1} попытки!')
+    print(f'Поздравляем! Вы отгадали число c {try_number} попытки!')
 else:
     print('К сожалению, Вы не отгадали число :((')
     print(f'А загадано было число: {rand_number}')
